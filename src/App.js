@@ -9,12 +9,13 @@ const imagesArr = imageData;
 export default function App() {
   // USE useState TO CREATE  [bigImage, setBigImage] -----D
   const [bigImage, setBigImage] = useState(imagesArr[0].img);
-  console.log(bigImage);
+  // console.log(bigImage);
   // AND SET IT TO THE IMAGE URL OF THE FIRST ELEMENT IN THE ARRAY ------D
   // const handle
 
   // CREATE A HANDLE CLICK FUNCTION THAT ACCEPTS AN IMAGE URL
   const handleClick = () => {
+    // console.log("click");
     setBigImage(bigImage);
   };
   // THE FUNCTION SHOULD CALL setBigImage AND PASS IT THE URL
@@ -24,7 +25,14 @@ export default function App() {
   //   console.log(images[i]);
   // }
   const images = imagesArr.map((image, index) => {
-    return <img src={image.img} />;
+    return (
+      <img
+        key={index}
+        className="thumb"
+        onClick={handleClick}
+        src={image.img}
+      />
+    );
     // {image.city}
   });
   // console.log(images);
@@ -43,8 +51,13 @@ export default function App() {
             images
           }
         </div>
-        {/* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage */}
-        {/* <img src="" id="bigimage" alt='bigImage'/> */}
+        {
+          /* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage  */
+         
+        }
+
+        <img src={bigImage} id="bigimage" alt="bigImage" />
+        {}
       </div>
     </div>
   );
