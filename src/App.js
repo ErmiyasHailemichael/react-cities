@@ -14,9 +14,11 @@ export default function App() {
   // const handle
 
   // CREATE A HANDLE CLICK FUNCTION THAT ACCEPTS AN IMAGE URL
-  const handleClick = () => {
-    // console.log("click");
-    setBigImage(bigImage);
+  const handleClick = (imgUrl) => {
+    
+      // console.log("click");
+      setBigImage(imgUrl)
+
   };
   // THE FUNCTION SHOULD CALL setBigImage AND PASS IT THE URL
 
@@ -27,10 +29,11 @@ export default function App() {
   const images = imagesArr.map((image, index) => {
     return (
       <img
-        key={index}
-        className="thumb"
-        onClick={handleClick}
         src={image.img}
+        alt={image.alt}
+        className="thumb"
+        onClick={() => handleClick(image.img)}
+        key={index}
       />
     );
     // {image.city}
@@ -46,15 +49,10 @@ export default function App() {
       <h1>Cities Of The World</h1>
       <div id="wrapper">
         <div id="thumbnails">
-          {
-            /* RENDER THE IMAGES ARRAY  */
-            images
-          }
+          {/* RENDER THE IMAGES ARRAY  */}
+          {images}
         </div>
-        {
-          /* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage  */
-         
-        }
+        {/* THE SRC IMAGE URL SHOULD BE SET TO THE VALUE THAT IS STORED IN bigImage  */}
 
         <img src={bigImage} id="bigimage" alt="bigImage" />
         {}
