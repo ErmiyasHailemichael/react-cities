@@ -27,6 +27,7 @@ export default function App() {
   //   console.log(images[i]);
   // }
   const images = imagesArr.map((image, index) => {
+    //you can change the border with a ternary on the style property :)
     return (
       <img
         src={image.img}
@@ -34,6 +35,9 @@ export default function App() {
         className="thumb"
         onClick={() => handleClick(image.img)}
         key={index}
+        style={{
+          border: image.img === bigImage ?  '4px solid green' : ''
+        }}
       />
     );
     // {image.city}
